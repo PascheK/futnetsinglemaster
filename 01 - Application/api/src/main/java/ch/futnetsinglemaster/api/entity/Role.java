@@ -13,7 +13,7 @@ import lombok.Setter;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PK_Role", nullable = false)
+    @Column(name = "id_role", nullable = false)
     private Integer id;
 
     @Size(max = 45)

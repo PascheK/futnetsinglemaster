@@ -14,15 +14,15 @@ import java.time.LocalDate;
 public class Rencontre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PK_Rencontre", nullable = false)
+    @Column(name = "id_rencontre", nullable = false)
     private Integer id;
 
     @NotNull
-    @Column(name = "Valide", nullable = false)
+    @Column(name = "valide", nullable = false)
     private Byte valide;
 
     @NotNull
-    @Column(name = "Date", nullable = false)
+    @Column(name = "date", nullable = false)
     private LocalDate date;
 
 }

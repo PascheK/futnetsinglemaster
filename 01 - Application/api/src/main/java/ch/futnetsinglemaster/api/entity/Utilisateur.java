@@ -1,19 +1,25 @@
 package ch.futnetsinglemaster.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
 @Table(name = "utilisateur")
+@NoArgsConstructor
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PK_Utilisateur", nullable = false)
+    @Column(name = "id_utilisateur", nullable = false)
     private Integer id;
 
     @Size(max = 100)
@@ -41,19 +47,22 @@ public class Utilisateur {
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "FK_Role", nullable = false)
-    private Role fkRole;
+    @JoinColumn(name = "id_role", nullable = false)
+    private Role idRole;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "FK_Equipe", nullable = false)
-    private Equipe fkEquipe;
+    @JoinColumn(name = "id_equipe", nullable = false)
+    private Equipe idEquipe;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "FK_Tournois", nullable = false)
-    private Tournoi fkTournois;
+    @JoinColumn(name = "id_tournoi", nullable = false)
+    private Tournoi idTournoi;
 
 }

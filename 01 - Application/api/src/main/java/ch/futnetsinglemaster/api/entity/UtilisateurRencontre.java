@@ -13,22 +13,22 @@ public class UtilisateurRencontre {
     @EmbeddedId
     private UtilisateurRencontreId id;
 
-    @MapsId("utilisateurPkUtilisateur")
+    @MapsId("idUtilisateur")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Utilisateur_PK_Utilisateur", nullable = false)
-    private Utilisateur utilisateurPkUtilisateur;
+    @JoinColumn(name = "id_utilisateur", nullable = false)
+    private Utilisateur idUtilisateur;
 
-    @MapsId("rencontrePkRencontre")
+    @MapsId("idRencontre")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Rencontre_PK_Rencontre", nullable = false)
-    private Rencontre rencontrePkRencontre;
+    @JoinColumn(name = "id_rencontre", nullable = false)
+    private Rencontre idRencontre;
 
     @NotNull
     @Column(name = "score", nullable = false)
     private Integer score;
 
     @NotNull
-    @Column(name = "estJoueur1", nullable = false)
+    @Column(name = "est_joueur1", nullable = false)
     private Byte estJoueur1;
 
 }

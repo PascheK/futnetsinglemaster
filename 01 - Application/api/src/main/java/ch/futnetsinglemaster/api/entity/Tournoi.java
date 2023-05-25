@@ -13,7 +13,7 @@ import lombok.Setter;
 public class Tournoi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PK_Tournoi", nullable = false)
+    @Column(name = "id_tournoi", nullable = false)
     private Integer id;
 
     @Size(max = 100)

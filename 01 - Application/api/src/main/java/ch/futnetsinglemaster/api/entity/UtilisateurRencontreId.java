@@ -14,27 +14,27 @@ import java.util.Objects;
 @Setter
 @Embeddable
 public class UtilisateurRencontreId implements Serializable {
-    private static final long serialVersionUID = 530611932578396605L;
+    private static final long serialVersionUID = 8456981305396916300L;
     @NotNull
-    @Column(name = "Utilisateur_PK_Utilisateur", nullable = false)
-    private Integer utilisateurPkUtilisateur;
+    @Column(name = "id_utilisateur", nullable = false)
+    private Integer idUtilisateur;
 
     @NotNull
-    @Column(name = "Rencontre_PK_Rencontre", nullable = false)
-    private Integer rencontrePkRencontre;
+    @Column(name = "id_rencontre", nullable = false)
+    private Integer idRencontre;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         UtilisateurRencontreId entity = (UtilisateurRencontreId) o;
-        return Objects.equals(this.utilisateurPkUtilisateur, entity.utilisateurPkUtilisateur) &&
-                Objects.equals(this.rencontrePkRencontre, entity.rencontrePkRencontre);
+        return Objects.equals(this.idRencontre, entity.idRencontre) &&
+                Objects.equals(this.idUtilisateur, entity.idUtilisateur);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(utilisateurPkUtilisateur, rencontrePkRencontre);
+        return Objects.hash(idRencontre, idUtilisateur);
     }
 
 }
