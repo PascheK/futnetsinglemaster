@@ -26,6 +26,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class UtilisateurServiceIMPL implements UtilisateurService {
@@ -100,8 +101,8 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
     }
 
     @Override
-    public Utilisateur findByUsername(String username) {
-        return  userRepo.findByUsername(username);
+    public Optional<Utilisateur> findByUsername(String username) {
+        return userRepo.findByUsername(username);
     }
 
 
@@ -110,6 +111,7 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
     // =====================
 
     private UtilisateurDto mapToDTOList(Utilisateur user) {
+
         UtilisateurDto listUser = new UtilisateurDto();
         listUser.setId(user.getId());
         listUser.setNom(user.getNom());
