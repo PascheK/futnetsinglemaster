@@ -10,7 +10,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 
 @SpringBootApplication
-@EnableConfigurationProperties(SecurityConfig.RsaKeyProperties.class)
 @OpenAPIDefinition(info = @Info(title = "FutNet Single Master API", version = "1.0", description = "created by @paschek"))
 public class ApiApplication {
 

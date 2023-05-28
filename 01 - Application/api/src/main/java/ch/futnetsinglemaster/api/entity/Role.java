@@ -21,4 +21,9 @@ public class Role {
     @Column(name = "role", nullable = false, length = 45)
     private String role;
 
+
+    @NotNull
+    @Column(name = "niveau", nullable = false)
+    private Integer niveau;
+
 }

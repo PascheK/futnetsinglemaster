@@ -1,26 +1,23 @@
 package ch.futnetsinglemaster.api.service.impl;
 
+import ch.futnetsinglemaster.api.beans.LoginRequest;
 import ch.futnetsinglemaster.api.beans.ResultJSON;
+import ch.futnetsinglemaster.api.dto.PutUserDTO;
 import ch.futnetsinglemaster.api.entity.Utilisateur;
-import ch.futnetsinglemaster.api.dto.PostUser;
+import ch.futnetsinglemaster.api.dto.PostUserDTO;
 import ch.futnetsinglemaster.api.dto.UtilisateurDto;
+import ch.futnetsinglemaster.api.exception.ErrorResponse;
 import ch.futnetsinglemaster.api.repository.EquipeRepo;
 import ch.futnetsinglemaster.api.repository.RoleRepo;
-import ch.futnetsinglemaster.api.repository.TournoiRepo;
 import ch.futnetsinglemaster.api.repository.UtilisateurRepo;
 import ch.futnetsinglemaster.api.service.EmailSenderService;
 import ch.futnetsinglemaster.api.service.UtilisateurService;
-import ch.futnetsinglemaster.api.utils.PassEncoder;
 import ch.futnetsinglemaster.api.utils.PasswordGenerator;
-import freemarker.cache.ClassTemplateLoader;
-import freemarker.cache.TemplateLoader;
-import freemarker.template.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
-import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -38,15 +35,18 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
     private UtilisateurRepo userRepo;
     @Autowired
     private RoleRepo roleRepo;
-      @Autowired
-    private EquipeRepo equipeRepo;
     @Autowired
-    private TournoiRepo tournoiRepo;
+    private EquipeRepo equipeRepo;
+
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     // =====================
     //         GET
     // =====================
     @Override
-    public List<UtilisateurDto> getUsersByTournament() {
+    public List<UtilisateurDto> getUsers() {
+
         List<Utilisateur> getUsers =(List<Utilisateur>) userRepo.findAll();
 
         return getUsers.stream().map(this::mapToDTOList).toList();
@@ -56,7 +56,7 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
     //         POST
     // =====================
     @Override
-    public ResultJSON saveUser(PostUser u) {
+    public ResultJSON saveUser(PostUserDTO u) {
         ResultJSON resultJSON = new ResultJSON();
         Utilisateur saveUser = new Utilisateur();
         saveUser.setNom(u.getNom());
@@ -65,25 +65,16 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
 
         PasswordGenerator passwordGenerator = new PasswordGenerator.PasswordGeneratorBuilder().useDigits(true).useUpper(true).useLower(true).usePunctuation(true).build();
         String password = passwordGenerator.generate(10);
-        PassEncoder passEncoder = new PassEncoder();
-        String encodedPass ="";
-        try {
-             encodedPass = passEncoder.toHexString(passEncoder.getSHA(password));
-        } catch (NoSuchAlgorithmException e) {
-            resultJSON.setResponseCode(400);
-            resultJSON.setResponseTitle("Password generation error");
-            resultJSON.setResponseText(e.getMessage());
-            return null;
-        }
+
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
         String formattedDate = myDateObj.format(myFormatObj);
         String username = u.getNom() + u.getPrenom().toUpperCase().charAt(0)+formattedDate;
         saveUser.setUsername(username);
-        saveUser.setPassword(encodedPass);
+
+        saveUser.setPassword(passwordEncoder.encode(password));
         saveUser.setIdRole(roleRepo.getReferenceById(u.getRole()));
         saveUser.setIdEquipe(equipeRepo.getReferenceById(u.getNomEquipe()));
-        saveUser.setIdTournoi(tournoiRepo.getReferenceById(1));
         Utilisateur user = userRepo.save(saveUser);
         if (user != null){
             Map<String, Object> model = new HashMap<>();
@@ -100,9 +91,45 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
         return resultJSON;
     }
 
+    // =====================
+    //         PUT
+    // =====================
     @Override
-    public Optional<Utilisateur> findByUsername(String username) {
-        return userRepo.findByUsername(username);
+    public UtilisateurDto putUser(PutUserDTO user) {
+        ResultJSON resultJSON = new ResultJSON();
+        if(userRepo.existsById(user.getId_user())){
+            Utilisateur oldUser = userRepo.getReferenceById(user.getId_user());
+            oldUser.setNom(user.getNom());
+            oldUser.setPrenom(user.getPrenom());
+            oldUser.setIdRole(roleRepo.getReferenceById(user.getRole()));
+            oldUser.setIdEquipe(equipeRepo.getReferenceById(user.getNomEquipe()));
+            oldUser.setMail(user.getMail());
+
+            Utilisateur newUser = userRepo.saveAndFlush(oldUser);
+            return mapToDTOList(newUser);
+        }else{
+            return null;
+        }
+    }
+
+    // =====================
+    //         DELETE
+    // =====================
+    @Override
+    public ResultJSON deleteUser(int userId) {
+        ResultJSON resultJSON = new ResultJSON();
+        userRepo.deleteById(userId);
+        if(userRepo.existsById(userId)){
+
+            resultJSON.setResponseCode(400);
+            resultJSON.setResponseTitle("User Error");
+            resultJSON.setResponseText("L'utilisateur n'as pas été supprimé !");
+        }else{
+            resultJSON.setResponseCode(200);
+            resultJSON.setResponseTitle("Success");
+            resultJSON.setResponseText("L'utilisateur as été supprimé !");
+        }
+        return resultJSON;
     }
 
 
@@ -120,6 +147,7 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
         listUser.setUsername(user.getUsername());
         listUser.setPassword(user.getPassword());
         listUser.setRole(user.getIdRole().getRole());
+        listUser.setNiveau(user.getIdRole().getNiveau());
         listUser.setNomEquipe(user.getIdEquipe().getNomEquipe());
         return listUser;
     }

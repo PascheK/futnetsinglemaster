@@ -59,10 +59,5 @@ public class Utilisateur {
     @JoinColumn(name = "id_equipe", nullable = false)
     private Equipe idEquipe;
 
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_tournoi", nullable = false)
-    private Tournoi idTournoi;
 
 }

@@ -1,6 +1,5 @@
 package ch.futnetsinglemaster.api.dto;
 
-import ch.futnetsinglemaster.api.beans.ResultJSON;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PostUser {
+public class PostUserDTO {
     private String nom;
     private String prenom;
     private String mail;

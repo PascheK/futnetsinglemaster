@@ -24,6 +24,7 @@ public class UtilisateurDto  {
     private String username;
     private String password;
     private String role;
+    private int niveau;
     private String nomEquipe;
 
 }
