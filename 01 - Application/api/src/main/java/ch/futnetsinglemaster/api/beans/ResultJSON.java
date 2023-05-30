@@ -14,5 +14,13 @@ public class ResultJSON {
     private int responseCode;
     private String responseTitle;
     private String responseText;
+    private Object responseObject;
+
+    public ResultJSON(int responseCode, String responseTitle, String responseText)
+    {
+        this.responseCode = responseCode;
+        this.responseTitle = responseTitle;
+        this.responseText = responseText;
+    }
 
 }
