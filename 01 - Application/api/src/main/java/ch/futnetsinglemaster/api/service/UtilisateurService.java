@@ -25,7 +25,7 @@ public interface UtilisateurService {
     // =====================
     //         PUT
     // =====================
-    UtilisateurDto putUser(PutUserDTO user);
+    ResultJSON putUser(PutUserDTO user);
 
     // =====================
     //         DELETE

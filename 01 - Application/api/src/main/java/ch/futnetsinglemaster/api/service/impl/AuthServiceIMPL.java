@@ -1,6 +1,7 @@
 package ch.futnetsinglemaster.api.service.impl;
 
 import ch.futnetsinglemaster.api.beans.LoginRequest;
+import ch.futnetsinglemaster.api.beans.ResultJSON;
 import ch.futnetsinglemaster.api.dto.UtilisateurDto;
 import ch.futnetsinglemaster.api.entity.Utilisateur;
 import ch.futnetsinglemaster.api.repository.UtilisateurRepo;
@@ -18,14 +19,15 @@ public class AuthServiceIMPL implements AuthService {
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Override
-    public UtilisateurDto login(LoginRequest user) {
-        Utilisateur userlogin = userRepo.findByUsername(user.username())
-                .orElseThrow(() -> new UsernameNotFoundException("Username not found: "+user.username()));
+    public ResultJSON login(LoginRequest user) {
+        Utilisateur userlogin = userRepo.findByUsername(user.username()).orElse(null);
+        if(userlogin == null){
+           return new ResultJSON(400, "User error", "Aucun utilisateur existant", null);
+        }
         if(passwordEncoder.matches(user.password(), userlogin.getPassword())){
-            return mapToDTOList(userlogin);
+            return new ResultJSON(200, "", "", mapToDTOList(userlogin));
         }else{
-
-            return null;
+            return new ResultJSON(401, "Unauthorized", "Le mot de passe ou l'username est incorrecte", null);
         }
     }
 
