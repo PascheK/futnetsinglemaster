@@ -9,6 +9,14 @@ export const useUserStore = defineStore('user', () => {
   const user = ref({} as User);
   const connected = ref(false);
 
+  const isAdmin = computed(() => {
+    try {
+      return connected.value && user.value.role === "ADMIN";
+    }catch{
+      return false;
+    }
+  })
+
   const router = useRouter();
 
   function init() {
@@ -85,5 +93,5 @@ export const useUserStore = defineStore('user', () => {
     });
   }
 
-  return { user,connected, save, login, init, destroy, disconnect }
+  return { user,connected, save, login, init, destroy, disconnect, isAdmin }
 })

@@ -1,14 +1,32 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+
 import TopBar from '../components/TopBar.vue';
+import { useClassementStore } from '@/stores/classementStore';
+import Classement from '@/utils/beans/Classement';
+
+const classementStore = useClassementStore()
+
+
+onMounted(() => {
+   classementStore.fetchClassement();
+})
+
 
 </script>
 
 <template>
   <TopBar section-title="Classement"/>
-  <div class="classement">
-    Classement
-
+<div class="classement">
+  <div class="tab">
+    <h3>Classement</h3>
+    <div class="classement-tab" v-for="(c, index) in classementStore.classement" :key="index">
+    {{ c.nom }}
   </div>
+  </div>
+</div>
+
+
 </template>
 
 

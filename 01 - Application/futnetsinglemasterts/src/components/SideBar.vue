@@ -6,10 +6,9 @@ import { useUserStore } from '@/stores/userStore';
 const userStore = useUserStore()
 
 const isExpended = ref(localStorage.getItem("isExpended") === "true");
-const isAdmin = ref(false);
 function toggleMenu() {
   isExpended.value = !isExpended.value;
- // localStorage.setItem("isExpended", isExpended.value);
+  localStorage.setItem("isExpended", '' + isExpended.value);
 }
 
 function logOut(){
@@ -41,11 +40,7 @@ function logOut(){
           <span class="material-icons">today</span>
           <span class="text">Rencontre</span>
         </router-link>
-        <router-link class="button" to="/inscription" active-class="active">
-          <span class="material-icons">group</span>
-          <span class="text">Inscriptions</span>
-        </router-link>
-        <router-link v-if="isAdmin" class="button" to="/inscription" active-class="active">
+        <router-link v-if="userStore.isAdmin" class="button" to="/inscription" active-class="active">
           <span class="material-icons">group</span>
           <span class="text">Inscriptions</span>
         </router-link>
