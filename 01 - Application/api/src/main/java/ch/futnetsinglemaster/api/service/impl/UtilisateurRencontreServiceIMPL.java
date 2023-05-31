@@ -65,6 +65,8 @@ public class UtilisateurRencontreServiceIMPL implements UtilisateurRencontreServ
     // =====================
     @Override
     public ResultJSON postRencontre(int joueur1, int joueur2, int score1, int score2, LocalDate date) {
+        if(joueur1 == joueur2)
+            return new ResultJSON(400, "Erreur rencontre","Un joueur ne peut pas joueur contre lui même!");
         try {
             Utilisateur j1 = utilisateurRepo.getReferenceById(joueur1);
             Utilisateur j2 = utilisateurRepo.getReferenceById(joueur2);
@@ -160,7 +162,6 @@ public class UtilisateurRencontreServiceIMPL implements UtilisateurRencontreServ
     // =====================
     @Override
     public ResultJSON deleteRencontre(int rencontreID) {
-        ResultJSON resultJSON = new ResultJSON();
         try {
             Rencontre r = rencontreRepo.getReferenceById(rencontreID);
             List<UtilisateurRencontre> urList = utilisateurRencontreRepo.findAllByIdRencontre(r);

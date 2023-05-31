@@ -1,18 +1,35 @@
 <script setup>
 import { ref } from 'vue'
 import {useRouter} from 'vue-router'
+import {axios} from '@/utils/axios.js'
 
 const router = useRouter();
 
 const username = ref('');
 const password = ref('');
 function login(){
-  router.push("/");
+  axios({
+  method: 'POST',
+  url: 'auth/login',
+  data: {
+    username:  username.value,
+    password: password.value
+  }
+})
+  .then(function (response) {
+    if(response.status == 200){
+      response.data
+      console.log(response.data)
+    }
+   console.log(response)
+  });
+
+
+  //router.push("/");
 }
 </script>
 
 <template>
-  <div class="app_greybg">
     <div class="login-container">
       <div class="login-wrapper">
         <div class="login">
@@ -45,7 +62,6 @@ function login(){
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -62,6 +78,10 @@ function login(){
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    @media (max-width: 550px) {
+      padding: 0 1rem;
+    }
   }
 }
 
@@ -70,8 +90,9 @@ function login(){
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  margin: 0 auto;
-
+  @media (max-width: 550px) {
+    width: 100%;
+  }
   .header {
     border-radius: 10px 10px 0px 0;
     display: flex;

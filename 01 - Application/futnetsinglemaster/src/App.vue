@@ -21,6 +21,7 @@ import { RouterView } from 'vue-router'
   --orange: #F77F00;
 
   --sidebar-width: 300px;
+  --sidebar-width-close: 64px;
 }
 
 * {
@@ -34,6 +35,7 @@ import { RouterView } from 'vue-router'
 #app {
   display: flex;
   height: 100vh;
+  background-color: var(--grey);
 }
 
 .app_greybg {

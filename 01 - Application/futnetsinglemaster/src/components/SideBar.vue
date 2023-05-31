@@ -11,6 +11,7 @@ function toggleMenu() {
 </script>
 
 <template>
+  <div class="sidebar"  :class="{ 'expanded': isExpended }">
     <aside :class="`${isExpended && 'is-expanded'}`">
       <div class="logo">
         <img src="@/assets/logo.svg" alt="Vue">
@@ -27,18 +28,18 @@ function toggleMenu() {
       <div class="menu">
         <router-link class="button" to="/">
           <span class="material-icons">dashboard</span>
-          <span class="text">Overview</span>
+          <span class="text">Classement</span>
         </router-link>
-        <router-link class="button" to="/about" active-class="active">
-          <span class="material-icons">mail_outline</span>
-          <span class="text">Messages</span>
+        <router-link class="button" to="/rencontre" active-class="active">
+          <span class="material-icons">today</span>
+          <span class="text">Rencontre</span>
         </router-link>
-        <router-link class="button" to="/test1" active-class="active">
-          <span class="material-icons">article</span>
-          <span class="text">Matchs</span>
+        <router-link class="button" to="/inscription" active-class="active">
+          <span class="material-icons">group</span>
+          <span class="text">Inscriptions</span>
         </router-link>
         <router-link v-if="isAdmin" class="button" to="/inscription" active-class="active">
-          <span class="material-icons">people</span>
+          <span class="material-icons">group</span>
           <span class="text">Inscriptions</span>
         </router-link>
         <div class="section-div">
@@ -62,12 +63,24 @@ function toggleMenu() {
         </router-link>
       </div>
     </aside>
+  </div>
 </template>
 
 
 
 <style lang="scss" scoped>
+.sidebar{
+  margin-right: var(--sidebar-width-close);
+
+}
+.expanded{
+  margin-right: var(--sidebar-width);
+  @media (max-width: 1000px) {
+    margin-right: var(--sidebar-width-close);
+  }
+}
 aside {
+  position: fixed;
   display: flex;
   flex-direction: column;
   width: calc(2rem + 32px);
@@ -83,7 +96,6 @@ aside {
   @media (max-width: 1000px) {
     position: fixed;
     z-index: 99;
-
   }
 
   .flex {
@@ -256,11 +268,13 @@ aside {
   .logo {
     margin-bottom: 1rem;
     display: flex;
-    h3{
+
+    h3 {
       padding-left: 2rem;
       margin: 0 !important;
       color: var(--white);
     }
+
     img {
       width: 2rem;
     }
