@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import { useUserStore } from '@/stores/userStore';
+import { useUserStore } from '@/stores/userStore'
 
 const userStore = useUserStore()
 
-userStore.init();
-
-
+userStore.init()
 </script>
 
 <template>
@@ -15,17 +13,29 @@ userStore.init();
 
 <style lang="scss">
 :root {
-  --font-base: "DM Sans", sans-serif;
+  --font-base: 'DM Sans', sans-serif;
 
   --dark: #212529;
-  --light-dark: #343C40;
+  --light-dark: #343c40;
   --grey: #e9ecef;
-  --light-grey: #F0EFF4;
+  --light-grey: #f0eff4;
   --white: #f8f9fa;
-  --red: #DA1E37;
-  --light-red: rgba(218, 30, 55, .75);
-  --green: #55A630;
-  --orange: #F77F00;
+  --red: #da1e37;
+  --light-red: rgba(218, 30, 55, 0.75);
+  --red-rgb: 218,30,55;
+  --green: #55a630;
+  --orange: #f77f00;
+
+  --pagination-active-color: var(--white) !important;
+  --pagination-active-bg: var(--light-red) !important;
+  --pagination-active-border-color: var(--red) !important;
+  --pagination-disabled-color: var(--red) !important;
+  --pagination-disabled-bg: transparent;
+  --pagination-disabled-border-color: var(--red) !important;
+  --body-color: var(--red) !important;
+  --body-bg: transparent !important;
+  --border-color: var(--red) !important;
+
 
   --sidebar-width: 300px;
   --sidebar-width-close: 64px;

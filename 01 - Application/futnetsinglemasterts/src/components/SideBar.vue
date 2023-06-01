@@ -1,33 +1,33 @@
-
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useUserStore } from '@/stores/userStore';
+import { useUserStore } from '@/stores/userStore'
 
 const userStore = useUserStore()
 
-const isExpended = ref(localStorage.getItem("isExpended") === "true");
+const isExpended = ref(localStorage.getItem('isExpended') === 'true')
 function toggleMenu() {
-  isExpended.value = !isExpended.value;
-  localStorage.setItem("isExpended", '' + isExpended.value);
+  isExpended.value = !isExpended.value
+  localStorage.setItem('isExpended', '' + isExpended.value)
 }
 
-function logOut(){
-  userStore.disconnect();
+function logOut() {
+  userStore.disconnect()
 }
 </script>
 
 <template>
-  <div class="sidebar"  :class="{ 'expanded': isExpended }">
+  <div class="sidebar" :class="{ expanded: isExpended }">
     <aside :class="`${isExpended && 'is-expanded'}`">
       <div class="logo">
-        <img src="@/assets/logo.svg" alt="Vue">
-        <h3>FutNet Single<br> Master</h3>
+        <img src="@/assets/logo.svg" alt="Vue" />
+        <h3>
+          FutNet Single<br />
+          Master
+        </h3>
       </div>
       <div class="menu-toggle-wrap">
         <div class="menu-toggle">
-          <span class="material-icons" @click="toggleMenu()">
-            chevron_right
-          </span>
+          <span class="material-icons" @click="toggleMenu()"> chevron_right </span>
         </div>
       </div>
       <h3>Menu</h3>
@@ -40,7 +40,12 @@ function logOut(){
           <span class="material-icons">today</span>
           <span class="text">Rencontre</span>
         </router-link>
-        <router-link v-if="userStore.isAdmin" class="button" to="/inscription" active-class="active">
+        <router-link
+          v-if="userStore.isAdmin"
+          class="button"
+          to="/inscription"
+          active-class="active"
+        >
           <span class="material-icons">group</span>
           <span class="text">Inscriptions</span>
         </router-link>
@@ -68,14 +73,11 @@ function logOut(){
   </div>
 </template>
 
-
-
 <style lang="scss" scoped>
-.sidebar{
+.sidebar {
   margin-right: var(--sidebar-width-close);
-
 }
-.expanded{
+.expanded {
   margin-right: var(--sidebar-width);
   @media (max-width: 1000px) {
     margin-right: var(--sidebar-width-close);
@@ -136,7 +138,6 @@ aside {
   }
 
   h3,
-
   .button .text {
     opacity: 0;
     transition: 0.3s ease-out;
@@ -240,7 +241,6 @@ aside {
           color: var(--red);
         }
       }
-
     }
   }
 
@@ -281,8 +281,6 @@ aside {
       width: 2rem;
     }
   }
-
-
 
   .button {
     .material-icons {

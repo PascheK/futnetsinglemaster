@@ -40,7 +40,7 @@ public class UtilisateurRencontreServiceIMPL implements UtilisateurRencontreServ
         List<ClassementDTO> classement = new ArrayList<>();
         for (Utilisateur u: usersList) {
             int score = utilisateurRencontreRepo.countAllByIdUtilisateurAndScore(u, 15);
-            classement.add(new ClassementDTO(u.getNom(), u.getPrenom(), u.getIdEquipe().getNomEquipe(), score*3));
+            classement.add(new ClassementDTO(u.getId(), u.getNom(), u.getPrenom(), u.getIdEquipe().getNomEquipe(), score*3));
         }
 
         return classement;

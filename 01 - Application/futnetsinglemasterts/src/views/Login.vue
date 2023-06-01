@@ -2,18 +2,17 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { axios } from '@/utils/axios.js'
-import User from '@/utils/beans/User';
-import { useUserStore } from '@/stores/userStore';
+import User from '@/utils/beans/User'
+import { useUserStore } from '@/stores/userStore'
 
 const userStore = useUserStore()
 
-const router = useRouter();
+const router = useRouter()
 
-const username = ref('');
-const password = ref('');
+const username = ref('')
+const password = ref('')
 function login() {
-  
-  userStore.login(username.value, password.value);
+  userStore.login(username.value, password.value)
 }
 </script>
 
@@ -23,28 +22,40 @@ function login() {
       <div class="login">
         <div class="header">
           <img src="@/assets/logo.svg" ref="" />
-          <h3>FutNet Single <br> Master</h3>
+          <h3>
+            FutNet Single <br />
+            Master
+          </h3>
         </div>
         <div class="loginForm">
           <form>
             <div class="group">
-              <input type="text" name="username" v-model="username" :class="{ 'used': username !== '' }" required><span
-                class="highlight"></span><span class="bar"></span>
-              <label> <span class="material-symbols-outlined">person</span>
-                Nom d'utilisateur</label>
+              <input
+                type="text"
+                name="username"
+                v-model="username"
+                :class="{ used: username !== '' }"
+                required
+              /><span class="highlight"></span><span class="bar"></span>
+              <label>
+                <span class="material-symbols-outlined">person</span> Nom d'utilisateur</label
+              >
             </div>
             <div class="group">
-              <input type="password" name="username" v-model="password" :class="{ 'used': password !== '' }"
-                required><span class="highlight"></span><span class="bar"></span>
-              <label> <span class="material-symbols-outlined">password </span>
-                Mot de passe</label>
+              <input
+                type="password"
+                name="username"
+                v-model="password"
+                :class="{ used: password !== '' }"
+                required
+              /><span class="highlight"></span><span class="bar"></span>
+              <label> <span class="material-symbols-outlined">password </span> Mot de passe</label>
             </div>
             <div class="button">
               <button type="submit" class="login-submit" id="login_button" @click.prevent="login()">
                 Connexion
               </button>
             </div>
-
           </form>
         </div>
       </div>
@@ -109,7 +120,6 @@ function login() {
 
     h3 {
       padding-bottom: 2rem;
-
     }
 
     .group {
@@ -131,13 +141,12 @@ function login() {
         &:focus {
           outline: none;
         }
-
       }
 
-      input:focus~label,
-      .used~label {
+      input:focus ~ label,
+      .used ~ label {
         top: -20px;
-        transform: scale(.75);
+        transform: scale(0.75);
         left: -2px;
         color: var(--red);
       }
@@ -157,8 +166,6 @@ function login() {
           padding: 0 7px 0px 0px;
         }
       }
-
-
 
       /* Underline */
 
@@ -187,13 +194,11 @@ function login() {
         right: 50%;
       }
 
-
       /* active */
-      input:focus~.bar:before,
-      input:focus~.bar:after {
+      input:focus ~ .bar:before,
+      input:focus ~ .bar:after {
         width: 50%;
       }
-
 
       /* Highlight */
       .highlight {
@@ -207,7 +212,7 @@ function login() {
       }
 
       /* active */
-      input:focus~.highlight {
+      input:focus ~ .highlight {
         animation: inputHighlighter 0.3s ease;
       }
 
@@ -223,9 +228,7 @@ function login() {
           background: transparent;
         }
       }
-
     }
-
 
     .button {
       display: flex;
@@ -257,4 +260,5 @@ function login() {
       }
     }
   }
-}</style>
+}
+</style>

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import Sidebar from "@/components/SideBar.vue";
-
+import Sidebar from '@/components/SideBar.vue'
 </script>
 <template>
   <main class="home-page">
-    <Sidebar/>
+    <Sidebar />
     <div class="page">
       <RouterView></RouterView>
     </div>
@@ -12,12 +11,11 @@ import Sidebar from "@/components/SideBar.vue";
 </template>
 
 <style lang="scss">
-
 .home-page {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  .page{
+  .page {
     width: 100%;
   }
 }

@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ClassementDTO {
+    private int userID;
     private String nom;
     private String prenom;
     private String nomEquipe;

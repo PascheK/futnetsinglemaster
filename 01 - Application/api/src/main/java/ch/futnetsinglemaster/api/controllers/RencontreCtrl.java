@@ -97,7 +97,7 @@ public class RencontreCtrl {
     //         DELETE
     // =====================
     @DeleteMapping(path = "/deleteRencontreById", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResultJSON> deleteUtilisateur(@RequestBody int rencontreID,  HttpServletRequest request){
+    public ResponseEntity<ResultJSON> DeleteRencontre(@RequestBody int rencontreID,  HttpServletRequest request){
         UtilisateurDto sessionUser = (UtilisateurDto) request.getSession().getAttribute("user");
         if(sessionUser != null && sessionUser.getNiveau() >= 5){
             ResultJSON res =  rencontreService.deleteRencontre(rencontreID);

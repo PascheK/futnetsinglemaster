@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
-import { useUserStore } from '@/stores/userStore';
+import { useUserStore } from '@/stores/userStore'
 const userStore = useUserStore()
 
-const props = defineProps({ sectionTitle: String });
+const props = defineProps({ sectionTitle: String })
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const props = defineProps({ sectionTitle: String });
       <h3>{{ sectionTitle }}</h3>
     </div>
     <div class="Profile">
-      <h4>Bienvenue {{ userStore.user.nom + " "+userStore.user.prenom }} !</h4>
+      <h4>Bienvenue {{ userStore.user.nom + ' ' + userStore.user.prenom }} !</h4>
     </div>
   </nav>
 </template>
