@@ -2,8 +2,9 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import User from '@/utils/beans/User'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { axios } from '@/utils/axios.js'
+import { errorSwal } from '@/utils/swal'
 
 export const useUserStore = defineStore('user', () => {
   const user = ref({} as User)
@@ -17,7 +18,16 @@ export const useUserStore = defineStore('user', () => {
     }
   })
 
+  const idUser = computed(() => {
+    try{
+      return user.value.id;
+    }catch{
+      return false;
+    }
+  })
+
   const router = useRouter()
+  const route = useRoute()
 
   function init() {
     try {
@@ -32,25 +42,27 @@ export const useUserStore = defineStore('user', () => {
       let sessionUser = session.user as User
 
       if (
-        sessionUser.idUser == undefined ||
+        sessionUser.id == undefined ||
         sessionUser.nom == undefined ||
         sessionUser.prenom == undefined ||
         sessionUser.role == undefined ||
         sessionUser.nomEquipe == undefined ||
-        sessionUser.mail == undefined
+        sessionUser.mail == undefined ||
+        sessionUser.username == undefined
       )
         throw new Error()
 
       user.value = new User(
-        sessionUser.idUser,
+        sessionUser.id,
         sessionUser.nom,
         sessionUser.prenom,
         sessionUser.role,
         sessionUser.nomEquipe,
-        sessionUser.mail
+        sessionUser.mail,
+        session.username
       )
       connected.value = true
-      router.push('/')
+      if (route.fullPath === 'login') router.push('/')
     } catch {
       destroy()
     }
@@ -68,6 +80,7 @@ export const useUserStore = defineStore('user', () => {
     connected.value = false
     user.value = {} as User
     localStorage.removeItem('userStore')
+    errorSwal('Veuillez vous connecter !').fire()
     router.push('/login')
   }
 
@@ -90,13 +103,12 @@ export const useUserStore = defineStore('user', () => {
             loggedUser.prenom,
             loggedUser.role,
             loggedUser.nomEquipe,
-            loggedUser.mail
+            loggedUser.mail,
+            loggedUser.username
           )
           save()
-          //router.push("/");
         }
       }
-      console.log(response)
     })
   }
 
@@ -109,9 +121,8 @@ export const useUserStore = defineStore('user', () => {
       if (response.status == 200) {
         destroy()
       }
-      console.log(response)
     })
   }
 
-  return { user, connected, save, login, init, destroy, disconnect, isAdmin }
+  return { user, connected, save, login, init, destroy, disconnect, isAdmin, idUser }
 })

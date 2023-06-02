@@ -1,6 +1,7 @@
 package ch.futnetsinglemaster.api.controllers;
 
 
+import ch.futnetsinglemaster.api.beans.DeleteIdRequest;
 import ch.futnetsinglemaster.api.beans.LoginRequest;
 import ch.futnetsinglemaster.api.beans.ResultJSON;
 import ch.futnetsinglemaster.api.dto.PostUserDTO;
@@ -79,10 +80,10 @@ public class UtilisateurCtrl {
     //         DELETE
     // =====================
     @DeleteMapping(path = "/deleteUserById", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResultJSON> deleteUtilisateur(@RequestBody int userId,  HttpServletRequest request){
+    public ResponseEntity<ResultJSON> deleteUtilisateur(@RequestBody DeleteIdRequest userId, HttpServletRequest request){
         UtilisateurDto sessionUser = (UtilisateurDto) request.getSession().getAttribute("user");
         if(sessionUser != null && sessionUser.getNiveau() >= 10){
-            ResultJSON res = userService.deleteUser(userId);
+            ResultJSON res = userService.deleteUser(userId.id());
             if(res.getResponseCode() == 200){
                 return new ResponseEntity<>(new ResultJSON(200, "success", "", res.getResponseObject()), new HttpHeaders(), HttpStatus.OK);
             }else{

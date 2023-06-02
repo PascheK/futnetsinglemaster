@@ -12,6 +12,9 @@ userStore.init()
 </template>
 
 <style lang="scss">
+@import 'bootstrap';
+@import 'datatables.net-bs5';
+
 :root {
   --font-base: 'DM Sans', sans-serif;
 
@@ -22,7 +25,7 @@ userStore.init()
   --white: #f8f9fa;
   --red: #da1e37;
   --light-red: rgba(218, 30, 55, 0.75);
-  --red-rgb: 218,30,55;
+  --red-rgb: 218, 30, 55;
   --green: #55a630;
   --orange: #f77f00;
 
@@ -35,7 +38,6 @@ userStore.init()
   --body-color: var(--red) !important;
   --body-bg: transparent !important;
   --border-color: var(--red) !important;
-
 
   --sidebar-width: 300px;
   --sidebar-width-close: 64px;
@@ -57,5 +59,34 @@ userStore.init()
 
 .app_greybg {
   background-color: var(--grey);
+}
+
+.section-bg {
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+  margin: 1rem;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 0 16px 3px rgba(0, 0, 0, 0.16);
+}
+.buttons-pagination .item.button.active{
+  background-color: var(--white);
+    border-left: var(--red);
+    border-color: var(--red)!important;
+}
+span{
+  &.edit{
+    color: var(--orange);
+  }
+  &.delete{
+    color: var(--red);
+  }
+  &.done{
+    color: var(--green);
+  }
+  &.close{
+    color: var(--red);
+  }
 }
 </style>

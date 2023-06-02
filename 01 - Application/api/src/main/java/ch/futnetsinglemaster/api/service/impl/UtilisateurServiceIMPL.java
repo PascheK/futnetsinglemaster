@@ -122,13 +122,17 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
     // =====================
     @Override
     public ResultJSON deleteUser(int userId) {
-        if(!userRepo.existsById(userId))
-            return new ResultJSON(400, "User error", "L'utilisateur n'existe pas!");
-        userRepo.deleteById(userId);
-        if(userRepo.existsById(userId)){
-            return new ResultJSON(400, "User error", "L'utilisateur n'as pas été supprimé !");
-        }else{
-            return new ResultJSON(200, "Success", "L'utilisateur as été supprimé !");
+        try{
+            if(!userRepo.existsById(userId))
+                return new ResultJSON(400, "User error", "L'utilisateur n'existe pas!");
+            userRepo.deleteById(userId);
+            if(userRepo.existsById(userId)){
+                return new ResultJSON(400, "User error", "L'utilisateur n'as pas été supprimé !");
+            }else{
+                return new ResultJSON(200, "Success", "L'utilisateur as été supprimé !");
+            }
+        }catch (Exception e){
+            return new ResultJSON(400, "User error", "L'utilisateur à déjà entré des rencontres!");
         }
     }
 

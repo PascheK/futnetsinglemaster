@@ -54,7 +54,7 @@ public class UtilisateurRencontreServiceIMPL implements UtilisateurRencontreServ
             List<UtilisateurRencontre> urList = utilisateurRencontreRepo.findAllByIdRencontre(r);
             UtilisateurRencontre ur1 =  urList.stream().filter(utilisateurRencontre -> utilisateurRencontre.getEstJoueur1() == 1).findFirst().get();
             UtilisateurRencontre ur2 = urList.stream().filter(utilisateurRencontre -> utilisateurRencontre.getEstJoueur1() == 0).findFirst().get();
-            rencontresDTO.add(new RencontresDTO(r.getId(), r.getDate(), ur1.getIdUtilisateur().getNom()+" "+ur1.getIdUtilisateur().getPrenom(),ur2.getIdUtilisateur().getNom()+" "+ur2.getIdUtilisateur().getPrenom(), ur1.getScore(), ur2.getScore(),r.getValide() == 0 ? false : true ));
+            rencontresDTO.add(new RencontresDTO(r.getId(), r.getDate(), ur1.getIdUtilisateur().getId(),ur2.getIdUtilisateur().getId(), ur1.getScore(), ur2.getScore(),r.getValide() == 0 ? false : true ));
         }
 
 

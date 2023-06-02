@@ -14,9 +14,9 @@ import java.time.LocalDate;
 public class RencontresDTO {
         private int idRencontre;
         private LocalDate date;
-        private String joueur1;
+        private int joueur1;
 
-        private String joueur2;
+        private int joueur2;
 
         private int score1;
         private int score2;

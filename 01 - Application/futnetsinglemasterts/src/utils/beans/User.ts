@@ -1,24 +1,27 @@
 export default class User {
-  idUser: Number
+  id: Number
   nom: string
   prenom: string
   role: string
   nomEquipe: string
   mail: string
+  username: string
 
   constructor(
-    idUser: Number,
+    id: Number,
     nom: string,
     prenom: string,
     role: string,
     nomEquipe: string,
-    mail: string
+    mail: string,
+    username: string
   ) {
-    this.idUser = idUser
+    this.id = id
     this.nom = nom
     this.prenom = prenom
     this.role = role
     this.nomEquipe = nomEquipe
     this.mail = mail
+    this.username = username
   }
 }

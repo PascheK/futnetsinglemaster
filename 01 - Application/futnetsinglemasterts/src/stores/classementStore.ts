@@ -1,23 +1,13 @@
 /* eslint-disable prefer-const */
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import Classement from '@/utils/beans/Classement'
-import { useRouter } from 'vue-router'
 import { axios } from '@/utils/axios.js'
 import { useUserStore } from '@/stores/userStore'
 
 export const useClassementStore = defineStore('classement', () => {
   const classement = ref([] as Classement[])
   const userStore = useUserStore()
-
-  const classem = computed(() => {
-    try {
-      const formatClassement = []
-      return connected.value && user.value.role === 'ADMIN'
-    } catch {
-      return false
-    }
-  })
 
   async function fetchClassement(): Promise<Classement[]> {
     try {
