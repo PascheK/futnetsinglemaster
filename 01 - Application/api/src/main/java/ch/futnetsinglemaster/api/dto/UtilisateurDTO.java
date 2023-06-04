@@ -1,10 +1,6 @@
 package ch.futnetsinglemaster.api.dto;
 
-import java.io.Serializable;
-
-import ch.futnetsinglemaster.api.beans.ResultJSON;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import ch.futnetsinglemaster.api.service.UtilisateurRencontreService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,13 +12,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class UtilisateurDto  {
+public class UtilisateurDTO {
     private Integer id;
     private String nom;
     private String prenom;
     private String mail;
     private String username;
-    private String password;
     private String role;
     private int niveau;
     private String nomEquipe;

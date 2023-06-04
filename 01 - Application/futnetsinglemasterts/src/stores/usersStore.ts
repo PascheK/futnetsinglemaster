@@ -1,18 +1,16 @@
 /* eslint-disable prefer-const */
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import User from '@/utils/beans/User'
 import { useRouter } from 'vue-router'
 import { axios } from '@/utils/axios.js'
-import { useUserStore } from '@/stores/userStore'
-import ResultJSON from '@/utils/beans/ResultJSON'
+import { useUserSessionStore } from '@/stores/userSessionStore'
 import { errorSwal, swal } from '@/utils/swal'
 
 export const useUsersStore = defineStore('users', () => {
   const users = ref([] as User[])
-  const userStore = useUserStore()
+  const userStore = useUserSessionStore()
   const router = useRouter()
-
 
   async function fetchUsers() {
     try {

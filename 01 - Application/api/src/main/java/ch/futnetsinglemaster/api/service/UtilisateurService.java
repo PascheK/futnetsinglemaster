@@ -1,21 +1,18 @@
 package ch.futnetsinglemaster.api.service;
 
-import ch.futnetsinglemaster.api.beans.LoginRequest;
 import ch.futnetsinglemaster.api.beans.ResultJSON;
 import ch.futnetsinglemaster.api.dto.PostUserDTO;
 import ch.futnetsinglemaster.api.dto.PutUserDTO;
-import ch.futnetsinglemaster.api.dto.UtilisateurDto;
-import ch.futnetsinglemaster.api.entity.Utilisateur;
+import ch.futnetsinglemaster.api.dto.UtilisateurDTO;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UtilisateurService {
 
     // =====================
     //         GET
     // =====================
-    List<UtilisateurDto> getUsers();
+    List<UtilisateurDTO> getUsers();
 
     // =====================
     //         POST

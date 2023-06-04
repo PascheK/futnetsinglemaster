@@ -1,6 +1,16 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import TopBar from '@/components/TopBar.vue'
 import UsersTable from '@/components/UsersTable.vue'
+import { useUserSessionStore } from '@/stores/userSessionStore'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const userStore = useUserSessionStore()
+
+onMounted(async () => {
+  if (!userStore.isAdmin) router.push('/')
+})
 </script>
 
 <template>

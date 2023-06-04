@@ -188,13 +188,6 @@ public class UtilisateurRencontreServiceIMPL implements UtilisateurRencontreServ
     //         UTILS
     // =====================
 
-    private RencontreDTO mapToDTOList(Rencontre rencontre) {
-        RencontreDTO listRencontre = new RencontreDTO();
-        listRencontre.setRencontreID(rencontre.getId());
-        listRencontre.setDate(rencontre.getDate());
-        listRencontre.setValide(rencontre.getValide());
-        return listRencontre;
-    }
     public Rencontre addRencontre(LocalDate date) {
         Rencontre r = new Rencontre();
 

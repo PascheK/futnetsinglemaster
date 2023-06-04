@@ -23,37 +23,26 @@ import java.util.Map;
 public class EmailSenderServiceIMPL implements EmailSenderService {
   @Autowired
   private JavaMailSender mailSender;
-
   @Autowired
   private Configuration configuration;
 
   @Override
   public ResultJSON sendSimpleEmail(String mailTo, String subject, Map<String, Object> model) {
-    ResultJSON resultJSON = new ResultJSON();
     MimeMessage mimeMessage = mailSender.createMimeMessage();
     try {
       MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
               "UTF-8");
-      // add attachment
-
       Template t = configuration.getTemplate("email-template.ftl");
       String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, model);
-
 
       helper.setTo(mailTo);
       helper.setText(html, true);
       helper.setSubject(subject);
       helper.setFrom("killian.pasche7@gmail.com");
       mailSender.send(mimeMessage);
-
-      resultJSON.setResponseCode(200);
-      resultJSON.setResponseTitle("Envoie du mail");
-      resultJSON.setResponseText("Le mail à bien été envoyé a : "+mailTo);
-
+      return new ResultJSON(200, "Envoie du mail", "Le mail mail à bien été envoyé à : "+ mailTo);
     } catch (MessagingException | IOException | TemplateException e) {
-      resultJSON.setResponseCode(400);
-      resultJSON.setResponseTitle("mail error");
-      resultJSON.setResponseText(e.getMessage());    }
-    return resultJSON;
+      return new ResultJSON(400, "mail error", e.getMessage());
+    }
   }
 }

@@ -1,7 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { axios } from '@/utils/axios.js'
-import { useUserStore } from '@/stores/userStore'
 import { errorSwal } from '@/utils/swal'
 import Equipe from '../utils/beans/Equipe'
 
@@ -12,7 +11,7 @@ export const useEquipeStore = defineStore('equipe', () => {
     try {
       const response = await axios({
         method: 'GET',
-        url: 'utils/getAllEquipe',
+        url: 'utils/getAllEquipes',
         data: {}
       })
       if (response.data.responseObject != null) {

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import { useUserStore } from '@/stores/userStore'
+import { useUserSessionStore } from '@/stores/userSessionStore'
 
-const userStore = useUserStore()
+const userStore = useUserSessionStore()
 
 userStore.init()
 </script>
@@ -28,6 +28,7 @@ userStore.init()
   --red-rgb: 218, 30, 55;
   --green: #55a630;
   --orange: #f77f00;
+  --40dd4f07: var(--red);
 
   --pagination-active-color: var(--white) !important;
   --pagination-active-bg: var(--light-red) !important;
@@ -51,6 +52,10 @@ userStore.init()
   scroll-behavior: smooth;
 }
 
+body {
+  height: 100vh;
+}
+
 #app {
   display: flex;
   height: 100vh;
@@ -70,23 +75,97 @@ userStore.init()
   padding: 2rem;
   box-shadow: 0 0 16px 3px rgba(0, 0, 0, 0.16);
 }
-.buttons-pagination .item.button.active{
-  background-color: var(--white);
-    border-left: var(--red);
-    border-color: var(--red)!important;
+
+.tab {
+  width: 100%;
 }
-span{
-  &.edit{
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  align-items: flex-end;
+
+  .button {
+    button {
+      width: 140px;
+      height: 45px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: var(--light-red);
+      background-color: transparent;
+      border: 1px solid var(--red);
+      border-radius: 5px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      outline: none;
+    }
+
+    button:hover {
+      background-color: var(--red);
+      box-shadow: 0px 15px 20px var(--light-red);
+      color: #fff;
+      transform: translateY(-7px);
+    }
+  }
+
+  .search {
+    input {
+      border: 1px solid var(--red);
+      border-radius: 7px;
+      padding: 5px;
+      color: var(--light-red);
+      background-color: transparent;
+
+      &:focus {
+        box-shadow: 0px 05px 20px var(--light-red);
+        outline: none;
+      }
+    }
+  }
+}
+
+span {
+  &.edit {
     color: var(--orange);
   }
-  &.delete{
+
+  &.delete {
     color: var(--red);
   }
-  &.done{
+
+  &.done {
     color: var(--green);
   }
-  &.close{
+
+  &.close {
     color: var(--red);
+  }
+}
+
+.form-outline {
+  padding: 0 20px;
+}
+
+@media (max-width: 1020px) {
+  .section-bg {
+    margin: 10px auto;
+    width: 90%;
+  }
+}
+@media (max-width: 550px) {
+  .section-bg {
+
+  }
+  .action{
+    flex-direction: column;
+    align-items: flex-start;
+    &>*{
+      margin: 10px 0;
+    }
   }
 }
 </style>

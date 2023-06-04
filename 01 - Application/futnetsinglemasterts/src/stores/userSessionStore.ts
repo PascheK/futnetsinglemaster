@@ -6,10 +6,9 @@ import { useRouter, useRoute } from 'vue-router'
 import { axios } from '@/utils/axios.js'
 import { errorSwal } from '@/utils/swal'
 
-export const useUserStore = defineStore('user', () => {
+export const useUserSessionStore = defineStore('user', () => {
   const user = ref({} as User)
   const connected = ref(false)
-
   const isAdmin = computed(() => {
     try {
       return connected.value && user.value.role === 'ADMIN'
@@ -17,18 +16,15 @@ export const useUserStore = defineStore('user', () => {
       return false
     }
   })
-
   const idUser = computed(() => {
-    try{
-      return user.value.id;
-    }catch{
-      return false;
+    try {
+      return user.value.id
+    } catch {
+      return false
     }
   })
-
   const router = useRouter()
   const route = useRoute()
-
   function init() {
     try {
       let sessionString = localStorage.getItem('userStore')
@@ -67,7 +63,6 @@ export const useUserStore = defineStore('user', () => {
       destroy()
     }
   }
-
   function save() {
     localStorage.setItem(
       'userStore',
@@ -75,7 +70,6 @@ export const useUserStore = defineStore('user', () => {
     )
     router.push('/')
   }
-
   function destroy() {
     connected.value = false
     user.value = {} as User
@@ -83,7 +77,6 @@ export const useUserStore = defineStore('user', () => {
     errorSwal('Veuillez vous connecter !').fire()
     router.push('/login')
   }
-
   function login(username: string, password: string) {
     axios({
       method: 'POST',
@@ -111,7 +104,6 @@ export const useUserStore = defineStore('user', () => {
       }
     })
   }
-
   function disconnect() {
     axios({
       method: 'POST',
@@ -123,6 +115,5 @@ export const useUserStore = defineStore('user', () => {
       }
     })
   }
-
   return { user, connected, save, login, init, destroy, disconnect, isAdmin, idUser }
 })

@@ -1,13 +1,11 @@
 <script lang="ts" setup>
 import TopBar from '../components/TopBar.vue'
-import ClassementTable from '@/components/ClassementTable.vue'
 </script>
 <template>
-  <TopBar section-title="Classement" />
+  <TopBar section-title="Options" />
   <div class="section-bg classement">
     <div class="tab">
-      <h3>Classement</h3>
-      <ClassementTable />
+      <h3>Options</h3>
     </div>
   </div>
 </template>

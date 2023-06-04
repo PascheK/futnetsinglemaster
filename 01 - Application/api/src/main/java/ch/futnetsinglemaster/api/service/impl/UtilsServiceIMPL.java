@@ -2,10 +2,8 @@ package ch.futnetsinglemaster.api.service.impl;
 
 import ch.futnetsinglemaster.api.dto.EquipesDTO;
 import ch.futnetsinglemaster.api.dto.RolesDTO;
-import ch.futnetsinglemaster.api.dto.UtilisateurDto;
 import ch.futnetsinglemaster.api.entity.Equipe;
 import ch.futnetsinglemaster.api.entity.Role;
-import ch.futnetsinglemaster.api.entity.Utilisateur;
 import ch.futnetsinglemaster.api.repository.EquipeRepo;
 import ch.futnetsinglemaster.api.repository.RoleRepo;
 import ch.futnetsinglemaster.api.service.UtilsService;

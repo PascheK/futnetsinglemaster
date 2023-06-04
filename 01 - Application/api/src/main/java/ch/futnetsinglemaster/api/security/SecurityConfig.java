@@ -35,14 +35,8 @@ public class SecurityConfig {
     {
         return http
                 .csrf(csrf -> csrf.disable())
-                .authorizeRequests( auth -> auth
-                        .anyRequest().permitAll()
-                )
+                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
                 .build();
-    }
-    @Bean
-    public PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
     }
 
 

@@ -2,23 +2,18 @@ package ch.futnetsinglemaster.api.controllers;
 
 
 import ch.futnetsinglemaster.api.beans.DeleteIdRequest;
-import ch.futnetsinglemaster.api.beans.LoginRequest;
 import ch.futnetsinglemaster.api.beans.ResultJSON;
 import ch.futnetsinglemaster.api.dto.PostUserDTO;
 import ch.futnetsinglemaster.api.dto.PutUserDTO;
-import ch.futnetsinglemaster.api.dto.UtilisateurDto;
-import ch.futnetsinglemaster.api.entity.Utilisateur;
+import ch.futnetsinglemaster.api.dto.UtilisateurDTO;
 import ch.futnetsinglemaster.api.service.UtilisateurService;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -33,8 +28,10 @@ public class UtilisateurCtrl {
     // =====================
     @GetMapping(path = "/getAllUsers", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResultJSON> getUsers(HttpServletRequest request){
-        UtilisateurDto sessionUser = (UtilisateurDto) request.getSession().getAttribute("user");
-        if(sessionUser != null && sessionUser.getNiveau() >= 5){
+        UtilisateurDTO sessionUser = (UtilisateurDTO) request.getSession().getAttribute("user");
+        if(sessionUser != null){
+            if(sessionUser.getNiveau() < 5)
+                return new ResponseEntity<>(new ResultJSON(403, "Forbiden", "Vous n'avez pas les droits nécessaire pour acceder à ces ressources", null), new HttpHeaders(), HttpStatus.FORBIDDEN);
             return new ResponseEntity<>(new ResultJSON(200, "success", "", userService.getUsers()), new HttpHeaders(), HttpStatus.OK);
         }
         return new ResponseEntity<>(new ResultJSON(401, "Unauthorized", "Vous n'avez pas les droits pour acceder à ces ressources", null), new HttpHeaders(), HttpStatus.UNAUTHORIZED);
@@ -45,8 +42,10 @@ public class UtilisateurCtrl {
     // =====================
     @PostMapping(path = "/saveUser",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResultJSON> postUtilisateur(@RequestBody PostUserDTO user, HttpServletRequest request) {
-        UtilisateurDto sessionUser = (UtilisateurDto) request.getSession().getAttribute("user");
-        if(sessionUser != null && sessionUser.getNiveau() >= 10){
+        UtilisateurDTO sessionUser = (UtilisateurDTO) request.getSession().getAttribute("user");
+        if(sessionUser != null){
+            if(sessionUser.getNiveau() < 10)
+                return new ResponseEntity<>(new ResultJSON(403, "Forbiden", "Vous n'avez pas les droits nécessaire pour acceder à ces ressources", null), new HttpHeaders(), HttpStatus.FORBIDDEN);
             ResultJSON res =userService.saveUser(user);
             if(res.getResponseCode() == 200){
                 return new ResponseEntity<>(res, new HttpHeaders(), HttpStatus.CREATED);
@@ -62,8 +61,10 @@ public class UtilisateurCtrl {
     // =====================
     @PutMapping(path = "/putUser",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResultJSON> putUtilisateur(@RequestBody PutUserDTO user,  HttpServletRequest request) {
-        UtilisateurDto sessionUser = (UtilisateurDto) request.getSession().getAttribute("user");
-        if(sessionUser != null && sessionUser.getNiveau() >= 10){
+        UtilisateurDTO sessionUser = (UtilisateurDTO) request.getSession().getAttribute("user");
+        if(sessionUser != null){
+            if(sessionUser.getNiveau() < 10)
+                return new ResponseEntity<>(new ResultJSON(403, "Forbiden", "Vous n'avez pas les droits nécessaire pour acceder à ces ressources", null), new HttpHeaders(), HttpStatus.FORBIDDEN);
             ResultJSON res = userService.putUser(user);
             if(res.getResponseCode() == 200){
                 return new ResponseEntity<>(new ResultJSON(200, "success", "", res.getResponseObject()), new HttpHeaders(), HttpStatus.OK);
@@ -81,8 +82,10 @@ public class UtilisateurCtrl {
     // =====================
     @DeleteMapping(path = "/deleteUserById", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResultJSON> deleteUtilisateur(@RequestBody DeleteIdRequest userId, HttpServletRequest request){
-        UtilisateurDto sessionUser = (UtilisateurDto) request.getSession().getAttribute("user");
-        if(sessionUser != null && sessionUser.getNiveau() >= 10){
+        UtilisateurDTO sessionUser = (UtilisateurDTO) request.getSession().getAttribute("user");
+        if(sessionUser != null ){
+            if(sessionUser.getNiveau() < 10)
+            return new ResponseEntity<>(new ResultJSON(403, "Forbiden", "Vous n'avez pas les droits nécessaire pour acceder à ces ressources", null), new HttpHeaders(), HttpStatus.FORBIDDEN);
             ResultJSON res = userService.deleteUser(userId.id());
             if(res.getResponseCode() == 200){
                 return new ResponseEntity<>(new ResultJSON(200, "success", "", res.getResponseObject()), new HttpHeaders(), HttpStatus.OK);

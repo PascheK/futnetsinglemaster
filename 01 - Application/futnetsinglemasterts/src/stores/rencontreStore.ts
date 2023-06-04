@@ -1,14 +1,14 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { axios } from '@/utils/axios.js'
-import { useUserStore } from '@/stores/userStore'
+import { useUserSessionStore } from '@/stores/userSessionStore'
 import { errorSwal, swal } from '@/utils/swal'
 import { useRouter } from 'vue-router'
 
 import Rencontre from '../utils/beans/Rencontre'
 
 export const useRencontreStore = defineStore('rencontre', () => {
-  const userStore = useUserStore();
+  const userStore = useUserSessionStore()
   const rencontre = ref([] as Rencontre[])
   const router = useRouter()
 
@@ -29,7 +29,7 @@ export const useRencontreStore = defineStore('rencontre', () => {
     }
   }
 
-  async function deleteRencontreById(id:Number) {
+  async function deleteRencontreById(id: Number) {
     try {
       await axios({
         method: 'DELETE',
@@ -45,8 +45,8 @@ export const useRencontreStore = defineStore('rencontre', () => {
       errorSwal(e.response.data.responseText).fire()
       return false
     }
-  } 
-  async function validateRencontre(id:Number) {
+  }
+  async function validateRencontre(id: Number) {
     try {
       await axios({
         method: 'PUT',
@@ -62,8 +62,8 @@ export const useRencontreStore = defineStore('rencontre', () => {
       errorSwal(e.response.data.responseText).fire()
       return false
     }
-  } 
-  async function addRencontre(idUser2:Number, score1:Number, score2:Number, date:string) {
+  }
+  async function addRencontre(idUser2: Number, score1: Number, score2: Number, date: string) {
     try {
       await axios({
         method: 'POST',
@@ -72,7 +72,7 @@ export const useRencontreStore = defineStore('rencontre', () => {
           joueur2: idUser2,
           score1: score1,
           score2: score2,
-          date:date
+          date: date
         }
       })
       await swal.fire({
@@ -87,8 +87,8 @@ export const useRencontreStore = defineStore('rencontre', () => {
       errorSwal(e.response.data.responseText).fire()
       return false
     }
-  } 
-  async function putRencontre(idRencontre:Number, score1:Number, score2:Number, date:string) {
+  }
+  async function putRencontre(idRencontre: Number, score1: Number, score2: Number, date: string) {
     try {
       await axios({
         method: 'PUT',
@@ -97,7 +97,7 @@ export const useRencontreStore = defineStore('rencontre', () => {
           rencontreId: idRencontre,
           score1: score1,
           score2: score2,
-          date:date
+          date: date
         }
       })
       await swal.fire({
@@ -111,7 +111,14 @@ export const useRencontreStore = defineStore('rencontre', () => {
       errorSwal(e.response.data.responseText).fire()
       return false
     }
-  } 
+  }
 
-  return { rencontre, putRencontre, fetchRencontre, deleteRencontreById, validateRencontre, addRencontre}
+  return {
+    rencontre,
+    putRencontre,
+    fetchRencontre,
+    deleteRencontreById,
+    validateRencontre,
+    addRencontre
+  }
 })

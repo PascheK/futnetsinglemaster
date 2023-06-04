@@ -1,14 +1,10 @@
 package ch.futnetsinglemaster.api.service.impl;
 
-import ch.futnetsinglemaster.api.beans.LoginRequest;
 import ch.futnetsinglemaster.api.beans.ResultJSON;
 import ch.futnetsinglemaster.api.dto.PutUserDTO;
-import ch.futnetsinglemaster.api.entity.Equipe;
-import ch.futnetsinglemaster.api.entity.Role;
 import ch.futnetsinglemaster.api.entity.Utilisateur;
 import ch.futnetsinglemaster.api.dto.PostUserDTO;
-import ch.futnetsinglemaster.api.dto.UtilisateurDto;
-import ch.futnetsinglemaster.api.exception.ErrorResponse;
+import ch.futnetsinglemaster.api.dto.UtilisateurDTO;
 import ch.futnetsinglemaster.api.repository.EquipeRepo;
 import ch.futnetsinglemaster.api.repository.RoleRepo;
 import ch.futnetsinglemaster.api.repository.UtilisateurRepo;
@@ -16,7 +12,6 @@ import ch.futnetsinglemaster.api.service.EmailSenderService;
 import ch.futnetsinglemaster.api.service.UtilisateurService;
 import ch.futnetsinglemaster.api.utils.PasswordGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +20,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class UtilisateurServiceIMPL implements UtilisateurService {
@@ -47,7 +41,7 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
     //         GET
     // =====================
     @Override
-    public List<UtilisateurDto> getUsers() {
+    public List<UtilisateurDTO> getUsers() {
 
         List<Utilisateur> getUsers =(List<Utilisateur>) userRepo.findAll();
 
@@ -141,15 +135,14 @@ public class UtilisateurServiceIMPL implements UtilisateurService {
     //         UTILS
     // =====================
 
-    private UtilisateurDto mapToDTOList(Utilisateur user) {
+    private UtilisateurDTO mapToDTOList(Utilisateur user) {
 
-        UtilisateurDto listUser = new UtilisateurDto();
+        UtilisateurDTO listUser = new UtilisateurDTO();
         listUser.setId(user.getId());
         listUser.setNom(user.getNom());
         listUser.setPrenom(user.getPrenom());
         listUser.setMail(user.getMail());
         listUser.setUsername(user.getUsername());
-        listUser.setPassword(user.getPassword());
         listUser.setRole(user.getIdRole().getRole());
         listUser.setNiveau(user.getIdRole().getNiveau());
         listUser.setNomEquipe(user.getIdEquipe().getNomEquipe());

@@ -1,7 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { axios } from '@/utils/axios.js'
-import { useUserStore } from '@/stores/userStore'
 import { errorSwal } from '@/utils/swal'
 import { useRouter } from 'vue-router'
 
@@ -15,7 +14,7 @@ export const useRoleStore = defineStore('role', () => {
     try {
       const response = await axios({
         method: 'GET',
-        url: 'utils/getAllRole',
+        url: 'utils/getAllRoles',
         data: {}
       })
       if (response.data.responseObject != null) {

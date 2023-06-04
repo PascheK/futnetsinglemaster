@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useUserStore } from '@/stores/userStore'
+import { useUserSessionStore } from '@/stores/userSessionStore'
 
-const userStore = useUserStore()
+const userStore = useUserSessionStore()
 
 const isExpended = ref(localStorage.getItem('isExpended') === 'true')
 function toggleMenu() {
@@ -40,17 +40,12 @@ function logOut() {
           <span class="material-icons">today</span>
           <span class="text">Rencontre</span>
         </router-link>
-        <router-link
-          v-if="userStore.isAdmin"
-          class="button"
-          to="/inscription"
-          active-class="active"
-        >
+        <router-link v-if="userStore.isAdmin" class="button" to="/inscription" active-class="active">
           <span class="material-icons">group</span>
           <span class="text">Inscriptions</span>
         </router-link>
         <div class="section-div">
-          <router-link class="button" to="/settings" active-class="active">
+          <router-link class="button" to="/options" active-class="active">
             <span class="material-icons">settings</span>
             <span class="text">Options</span>
           </router-link>
@@ -58,15 +53,10 @@ function logOut() {
       </div>
       <div class="flex"></div>
       <div class="menu">
-        <router-link class="link" to="/help" active-class="active">
-          <span class="text">Help</span>
-        </router-link>
-        <router-link class="link" to="/contact" active-class="active">
-          <span class="text">Contact us</span>
-        </router-link>
+        <a class="text link" href="/src/assets/Documentation utilisateur.pdf" target=”_blank” > <span>Aide</span></a>
         <router-link class="button" to="/login" @click.prevent="logOut()">
           <span class="material-icons">logout</span>
-          <span class="text">Log out</span>
+          <span class="text">Déconnexion</span>
         </router-link>
       </div>
     </aside>
@@ -77,12 +67,15 @@ function logOut() {
 .sidebar {
   margin-right: var(--sidebar-width-close);
 }
+
 .expanded {
   margin-right: var(--sidebar-width);
+
   @media (max-width: 1000px) {
     margin-right: var(--sidebar-width-close);
   }
 }
+
 aside {
   position: fixed;
   display: flex;
@@ -264,6 +257,9 @@ aside {
 
     .link {
       display: flex !important;
+      span{
+        color: var(--white);
+      }
     }
   }
 

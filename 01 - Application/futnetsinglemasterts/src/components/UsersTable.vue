@@ -56,7 +56,7 @@ const editItem = async (val: Item) => {
   })
 
   Swal.fire({
-    title: 'Inscription',
+    title: 'Modification',
     html: `<div class="row mb-4">
    <div class="col">
       <div class="form-outline">
@@ -95,7 +95,7 @@ const editItem = async (val: Item) => {
       </div>
    </div>
 </div>`,
-    confirmButtonText: 'Inscrire',
+    confirmButtonText: 'Modifier',
     focusConfirm: false,
     preConfirm: () => {
       const nom = (Swal.getPopup()?.querySelector('#registerNom') as HTMLInputElement | null)?.value
@@ -253,23 +253,21 @@ const addUser = async () => {
 }
 </script>
 <template>
-  <button @click="addUser()">Ajouter un utilisateur</button>
-  <span>search value: </span>
-  <input type="text" v-model="searchValue" />
-  <EasyDataTable
-    alternating
-    buttons-pagination
-    :headers="headers"
-    :search-value="searchValue"
-    :items="items"
-    :loading="loading"
-    :rows-per-page="10"
-  >
+  <div class="action">
+    <div class="button">
+      <button @click="addUser()">Ajouter un utilisateur</button>
+
+    </div>
+    <div class="search">
+      <input type="text" v-model="searchValue" placeholder="Rechercher 🔎"/>
+    </div>
+  </div>
+
+  <EasyDataTable alternating buttons-pagination :headers="headers" :search-value="searchValue" :items="items"
+    :loading="loading" :rows-per-page="10">
     <template #loading>
-      <img
-        src="https://cdn.dribbble.com/users/3742211/screenshots/9195657/media/6796a544d6f9ef1293d8d8d9e60d38d5.gif"
-        style="height: 100px"
-      />
+      <img src="https://cdn.dribbble.com/users/3742211/screenshots/9195657/media/6796a544d6f9ef1293d8d8d9e60d38d5.gif"
+        style="height: 100px" />
     </template>
     <template #item-operation="item">
       <div class="operation-wrapper">
@@ -279,8 +277,3 @@ const addUser = async () => {
     </template>
   </EasyDataTable>
 </template>
-
-
-<style lang="scss">
-  
-</style>

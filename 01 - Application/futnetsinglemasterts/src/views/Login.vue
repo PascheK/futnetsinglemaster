@@ -3,9 +3,9 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { axios } from '@/utils/axios.js'
 import User from '@/utils/beans/User'
-import { useUserStore } from '@/stores/userStore'
+import { useUserSessionStore } from '@/stores/userSessionStore'
 
-const userStore = useUserStore()
+const userStore = useUserSessionStore()
 
 const router = useRouter()
 
