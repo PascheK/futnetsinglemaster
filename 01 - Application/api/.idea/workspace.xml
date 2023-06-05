@@ -5,148 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d38ef9-4020-4375-88b0-392b80c8956c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../00 - Documents/4_PASCHE_rapport_du_TPI_2023.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../00 - Documents/4_PASCHE_rapport_du_TPI_2023.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jpb/persistence-units.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/ApiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/beans/DeleteIdRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/beans/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/beans/ResultJSON.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/config/ApiConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/controllers/AuthCtrl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/controllers/RencontreCtrl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/controllers/UtilisateurCtrl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/controllers/UtilsCtrl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/ClassementDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/EquipesDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/PostRencontreDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/PostUserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/PutRencontreDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/PutUserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/RencontreDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/RencontresDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/RolesDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/dto/UtilisateurDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/entity/Equipe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/entity/Rencontre.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/entity/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/entity/Utilisateur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/entity/UtilisateurRencontre.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/entity/UtilisateurRencontreId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/repository/EquipeRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/repository/RencontreRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/repository/RoleRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/repository/UtilisateurRencontreRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/repository/UtilisateurRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/security/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/EmailSenderService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/UtilisateurRencontreService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/UtilisateurService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/UtilsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/impl/AuthServiceIMPL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/impl/EmailSenderServiceIMPL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/impl/UtilisateurRencontreServiceIMPL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/impl/UtilisateurServiceIMPL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/service/impl/UtilsServiceIMPL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/futnetsinglemaster/api/utils/PasswordGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/certs/keypair.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/certs/private.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/certs/public.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/email-template.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ch/futnetsinglemaster/api/ApiApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/.eslintrc.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/.prettierrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/.vite/deps_temp_d1202174/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/android-chrome-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/android-chrome-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/browserconfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/mstile-150x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/safari-pinned-tab.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/public/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/assets/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/components/SideBar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/components/TopBar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/routes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/stores/counter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/utils/axios.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/views/Classement.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/views/Home.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/views/Inscription.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/views/Login.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/src/views/Rencontre.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemaster/vite.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/.eslintrc.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/.prettierrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/android-chrome-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/android-chrome-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/browserconfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/mstile-150x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/safari-pinned-tab.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/public/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/assets/Documentation utilisateur.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/assets/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/components/ClassementTable.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/components/RencontresTable.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/components/SideBar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/components/TopBar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/components/UsersTable.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/router/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/stores/classementStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/stores/equipeStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/stores/rencontreStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/stores/roleStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/stores/userSessionStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/stores/usersStore.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/utils/axios.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/utils/beans/Classement.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/utils/beans/Equipe.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/utils/beans/Rencontre.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/utils/beans/ResultJSON.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/utils/beans/Role.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/utils/beans/User.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/utils/swal.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/views/Classement.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/views/Home.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/views/Inscription.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/views/Login.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/views/Options.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/src/views/Rencontre.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/tsconfig.node.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../futnetsinglemasterts/vite.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/.eslintrc.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/.prettierrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/.vite/deps_temp_d1202174/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/android-chrome-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/android-chrome-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/browserconfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/favicon-16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/mstile-150x150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/safari-pinned-tab.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/public/site.webmanifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/components/SideBar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/components/TopBar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/stores/counter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/utils/axios.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/views/Classement.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/views/Home.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/views/Inscription.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/views/Login.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/src/views/Rencontre.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01 - Applications/futnetsinglemaster/vite.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,24 +72,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
-    "spring.configuration.checksum": "8a5da52ed126447d359e70c05721a8aa",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;8a5da52ed126447d359e70c05721a8aa&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -224,6 +116,7 @@
       <updated>1685454320230</updated>
       <workItem from="1685454321542" duration="41177000" />
       <workItem from="1685944861065" duration="1238000" />
+      <workItem from="1685973626399" duration="293000" />
     </task>
     <servers />
   </component>
