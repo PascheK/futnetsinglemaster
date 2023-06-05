@@ -156,16 +156,15 @@ span {
     width: 90%;
   }
 }
-@media (max-width: 550px) {
-  .section-bg {
 
-  }
-  .action{
+@media (max-width: 550px) {
+
+  .action {
     flex-direction: column;
     align-items: flex-start;
-    &>*{
+
+    &>* {
       margin: 10px 0;
     }
   }
-}
-</style>
+}</style>

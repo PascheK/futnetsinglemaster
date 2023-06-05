@@ -31,5 +31,16 @@ nav {
   h3 {
     text-transform: capitalize;
   }
+
+  @media (max-width: 550px) {
+    h4 {
+      font-size: 14px;
+
+    }
+    h3{
+      font-size: 14px;
+    }
 }
+}
+
 </style>
